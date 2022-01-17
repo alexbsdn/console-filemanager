@@ -1,17 +1,6 @@
-# - создать папку;
-# - удалить (файл/папку);
-# - копировать (файл/папку);
-# - просмотр содержимого рабочей директории;
-# - посмотреть только папки;
-# - посмотреть только файлы;
-# - просмотр информации об операционной системе;
-# - создатель программы;
-# - играть в викторину;
-# - мой банковский счет;
-# - смена рабочей директории (*необязательный пункт);
-# - выход.
 
 import os, sys, shutil
+import platform
 
 while True:
     print('1. создать папку')
@@ -35,8 +24,6 @@ while True:
     elif choice == '3':
         shutil.copyfile(input('Введите имя исходного файла/папки:') , input('Введите имя целевого файла/папки:') )
     elif choice == '4':
-        # lst = os.listdir('.')
-        # for i in range(len(lst)): print(lst[i])
         with os.scandir('.') as files:
             dir = [file.name for file in files]
             for i in range(len(dir)): print(dir[i])
@@ -49,15 +36,15 @@ while True:
             dir = [file.name for file in files if file.is_file()]
             for i in range(len(dir)): print(dir[i])
     elif choice == '7':
-        pass
+        print(platform.uname())
     elif choice == '8':
-        pass
+        print('(c) Александр Беседин')
     elif choice == '9':
-        pass
+        import victory
     elif choice == '10':
-        pass
+        import use_functions
     elif choice == '11':
-        pass
+        os.chdir(input('Введите путь до папки: '))
     elif choice == '12':
         break
     else:
