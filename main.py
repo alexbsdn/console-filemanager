@@ -1,6 +1,7 @@
 
-import os, sys, shutil
-import platform
+import os, shutil
+from quiz import quiz_run
+from account import account_run
 
 while True:
     print('1. создать папку')
@@ -40,12 +41,12 @@ while True:
     elif choice == '8':
         print('(c) Александр Беседин')
     elif choice == '9':
-        import victory
+        quiz_run()
     elif choice == '10':
-        import use_functions
+        account_run()
     elif choice == '11':
         os.chdir(input('Введите путь до папки: '))
     elif choice == '12':
-        break
+        os.exit()
     else:
-        print('Неверный пункт меню')
+        print('Неверный пункт меню.')

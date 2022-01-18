@@ -15,19 +15,20 @@ def get_date(date):
         month_list[int(date_list[1]) - 1] + ' ' +
         date_list[2] + ' года')
 
-import random
-surnames = ['Пушкин', 'Лермонтов', 'Есенин', 'Достоевский', 'Толстой', 'Попов', 'Мичурин', 'Менделеев', 'Эйнштейн', 'Бузова']
-birthdays = ['06.06.1799', '15.10.1814', '21.09.1895', '11.11.1821', '09.09.1828', '16.03.1859', '27.09.1855', '08.02.1834', '14.03.1879', '20.01.1986']
-ROUNDS = 5
-while True:
-    sample_lst = random.sample(surnames, ROUNDS)
-    result = 0
-    for i in range(ROUNDS):
-        answer = input('Введите дату рождения ' + sample_lst[i] + ': ')
-        if birthdays[surnames.index(sample_lst[i])] == answer:
-         print('Совершенно верно!')
-         result += 1
-        else:
-         print('Неправильно. Правильный ответ:', get_date(birthdays[surnames.index(sample_lst[i])]))
-    print('Количество правильных ответов:', result, '\nКоличество неправильных ответов:', ROUNDS - result)
-    if input('Сыграем ещё? (д/н):') != 'д': break
+def quiz_run():
+    import random
+    SURNAMES = ['Пушкин', 'Лермонтов', 'Есенин', 'Достоевский', 'Толстой', 'Попов', 'Мичурин', 'Менделеев', 'Эйнштейн', 'Бузова']
+    BIRTHDAYS = ['06.06.1799', '15.10.1814', '21.09.1895', '11.11.1821', '09.09.1828', '16.03.1859', '27.09.1855', '08.02.1834', '14.03.1879', '20.01.1986']
+    ROUNDS = 5
+    while True:
+        sample_lst = random.sample(SURNAMES, ROUNDS)
+        result = 0
+        for i in range(ROUNDS):
+            answer = input('Введите дату рождения ' + sample_lst[i] + ': ')
+            if BIRTHDAYS[SURNAMES.index(sample_lst[i])] == answer:
+             print('Совершенно верно!')
+             result += 1
+            else:
+             print('Неправильно. Правильный ответ:', get_date(BITHDAYS[SURNAMES.index(sample_lst[i])]))
+        print('Количество правильных ответов:', result, '\nКоличество неправильных ответов:', ROUNDS - result)
+        if input('Сыграем ещё? (д/н):') != 'д': os.exit()
