@@ -1,6 +1,5 @@
 
-import os, sys, shutil
-import platform
+import os, shutil, platform
 
 while True:
     print('1. создать папку')
